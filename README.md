@@ -12,15 +12,18 @@ This repository contains sample configuration files for Docker Distribution (Reg
 
 These directories need to be created manually before starting any of the containers below.
 
-## Base Configuration/Replacements
+## Step 1: Base Configuration Replacements
 
-1. Replace `your.registry.fqdn` with the actual fully qualified domain name of your host. 
+1. Checkout this repository to your local machine
+2. Replace `your.registry.fqdn` in `registry/config.yml` with the actual fully qualified domain name of your host. 
+3. Replace `your.registry.fqdn` in `portus/config-local.yml` with the actual fully qualified domain name of your host. 
+4. Replace `registry.fqdn` in `portus/config-local.yml` with your domain name.
 2. Place your SSL certificate chain _including intermediate CA certificates and private key_ at `/var/lib/registry/certs/server.crt`
 3. Place your SSL private key at `/var/lib/registry/certs/server.key`
 
 *Note:* To successfully configure the Docker Registry to use the webhook to notify Portus, the full SSL chain including private key is required.
 
-## Create MariaDB Container
+## Step 2: Create MariaDB Container
 
 Use the following command to start a MariaDB container to store the Portus data:
 
