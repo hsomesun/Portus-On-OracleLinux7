@@ -31,8 +31,11 @@ These directories need to be created manually before starting any of the contain
 Use the following command to start a MariaDB container to store the Portus data:
 
 ```
-# docker run -d --restart=always --name mariadb \
- -e MYSQL_ROOT_PASSWORD=portus \
+docker run -d --restart=always --name mariadb \
+ -e MYSQL_DATABASE=portus \
+ -e MYSQL_USER=portus \
+ -e MYSQL_PASSWORD=portus \
+ -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
  -v /var/lib/registry/mariadb:/var/lib/mysql \
  mariadb:latest
 ```
@@ -66,7 +69,7 @@ docker run -d --restart=always --name portus \
  -v /var/lib/registry/portus/config-local.yml:/srv/Portus/config/config-local.yml \
  --link mariadb:mariadb \
  -e MARIADB_SERVICE_HOST=mariadb \
- -e MARIADB_USER=root \
+ -e MARIADB_USER=portus \
  -e MARIADB_PASSWORD=portus \
  -e MARIADB_DATABASE=portus \
  -e PORTUS_SECRET_KEY_BASE=$(openssl rand -hex 64) \
