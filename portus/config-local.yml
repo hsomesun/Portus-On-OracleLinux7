@@ -1,0 +1,14 @@
+email:
+  from: "portus@registry.fqdn"
+  name: "Portus"
+  reply_to: "no-reply@registry.fqdn"
+
+machine_fqdn: 
+  value: "your.registry.fqdn"
+
+delete:
+  enabled: true
+
+display_name:
+  enabled: true
+
