@@ -40,7 +40,9 @@ docker run -d --restart=always --name mariadb \
  mariadb:latest
 ```
 
-Passing the MariaDB root password on the command line is insecure. You can review the official MariaDB container documentation for alternative methods to create the container with a more secure password option. Note that if you use an alternative password, you will need to change the `MARIADB_PASSWORD` environment variable when starting the Portus container.
+This will initialize the MariaDB database and generate a random root password. You will need to check the output of `docker logs mariadb` to find the root password generated. 
+It will also create a database for Portus and a user named `portus` with the password `portus`. For security purposes, it is strongly recommended that you change this
+command-line to use a different password and then change the `docker run` command that starts portus to use the same password.
 
 ## Step 3: Start the Registry Container
 
