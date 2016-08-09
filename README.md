@@ -25,9 +25,9 @@ These directories need to be created manually before starting any of the contain
 Use the following command to start a MariaDB container to store the Portus data:
 
 ```
-docker run -d --restart=always --name mariadb \
+# docker run -d --restart=always --name mariadb \
  -e MYSQL_ROOT_PASSWORD=portus \
- -v /var/lib/registry/mariadb:/var/lib/mysql 
+ -v /var/lib/registry/mariadb:/var/lib/mysql \
  mariadb:latest
 ```
 
