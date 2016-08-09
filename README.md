@@ -78,7 +78,7 @@ docker run -d --restart=always --name portus \
  -e PORTUS_PORTUS_PASSWORD=$(openssl rand -hex 64) \
  -p 443:443 \
  -p 80:80 \
-portus:latest
+opensuse/portus:2.0
 ```
 
 *Note:* if you used a different method to create the MariaDB database or provided a custom username/password, you need to replace the default values in this command.
