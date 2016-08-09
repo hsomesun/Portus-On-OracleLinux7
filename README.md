@@ -11,7 +11,7 @@ This repository contains sample configuration files for Docker Distribution (Reg
 
 ## Base Configuration/Replacements
 
-1. Replace `your.registry.fqdn` with the actual fully qualified domain name of your host. This sample 
+1. Replace `your.registry.fqdn` with the actual fully qualified domain name of your host. 
 2. Place your SSL certificate chain _including intermediate CA certificates and private key_ at `/var/lib/registry/certs/server.crt`
 3. Place your SSL private key at `/var/lib/registry/certs/server.key`
 
