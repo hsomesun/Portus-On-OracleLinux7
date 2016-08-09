@@ -82,3 +82,5 @@ opensuse/portus:2.0
 ```
 
 *Note:* if you used a different method to create the MariaDB database or provided a custom username/password, you need to replace the default values in this command.
+
+You should use `docker inspect portus` to find the `PORTUS_SECRET_KEY_BASE` and `PORTUS_PORTUS_PASSWORD` values used when the container was created. This will allow you to recreate the container using the existing database and maintain the correct `portus` user password (which is also stored in the database).
