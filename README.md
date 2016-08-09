@@ -53,3 +53,27 @@ registry:2
 ```
 
 Remember that all the required directories must be created prior to starting the container.
+
+## Step 4: Start the Portus Container
+
+Use the following command to start Portus:
+
+```
+docker run -d --restart=always --name portus \
+ -v /var/lib/registry/certs:/certificates \
+ -v /var/lib/registry/certs/server.crt:/certificates/portus-ca.crt \
+ -v /var/lib/registry/certs/server.key:/secrets/portus.key \
+ -v /var/lib/registry/portus/config-local.yml:/srv/Portus/config/config-local.yml \
+ --link mariadb:mariadb \
+ -e MARIADB_SERVICE_HOST=mariadb \
+ -e MARIADB_USER=root \
+ -e MARIADB_PASSWORD=portus \
+ -e MARIADB_DATABASE=portus \
+ -e PORTUS_SECRET_KEY_BASE=$(openssl rand -hex 64) \
+ -e PORTUS_PORTUS_PASSWORD=$(openssl rand -hex 64) \
+ -p 443:443 \
+ -p 80:80 \
+portus:latest
+```
+
+*Note:* if you used a different method to create the MariaDB database or provided a custom username/password, you need to replace the default values in this command.
