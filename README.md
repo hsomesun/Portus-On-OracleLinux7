@@ -7,7 +7,10 @@ This repository contains sample configuration files for Docker Distribution (Reg
 1. Registry images will be stored in `/var/lib/registry/data` on the host
 2. Certificates will be stored in `/var/lib/registry/certs` on the host
 3. Configuration files will be stored in `/var/lib/registry` on the host
+4. MariaDB data will be stored in `/var/lib/registry/mariadb` on the host
 4. You have a valid SSL certificate and key for the host
+
+These directories need to be created manually before starting any of the containers below.
 
 ## Base Configuration/Replacements
 
@@ -16,3 +19,16 @@ This repository contains sample configuration files for Docker Distribution (Reg
 3. Place your SSL private key at `/var/lib/registry/certs/server.key`
 
 *Note:* To successfully configure the Docker Registry to use the webhook to notify Portus, the full SSL chain including private key is required.
+
+## Create MariaDB Container
+
+Use the following command to start a MariaDB container to store the Portus data:
+
+```
+docker run -d --restart=always --name mariadb \
+ -e MYSQL_ROOT_PASSWORD=portus \
+ -v /var/lib/registry/mariadb:/var/lib/mysql 
+ mariadb:latest
+```
+
+Passing the MariaDB root password on the command line is insecure. You can review the official MariaDB container documentation for alternative methods to create the container with a more secure password option. Note that if you use an alternative password, you will need to change the `MARIADB_PASSWORD` environment variable when starting the Portus container.
