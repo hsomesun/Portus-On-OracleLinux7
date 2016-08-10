@@ -9,7 +9,7 @@ This repository contains sample configuration files for Docker Distribution (Reg
 3. Registry configuration will be stored in `/var/lib/registry` on the host
 4. Portus configuration will be stored in `/var/lib/registry/portus` on the host
 5. MariaDB data will be stored in `/var/lib/registry/mariadb` on the host
-6. You have a valid SSL certificate and key for the host
+6. You have a valid 3rd-party CA signed SSL certificate and corresponding private key for the host
 
 These directories need to be created manually before starting any of the containers below.
 
