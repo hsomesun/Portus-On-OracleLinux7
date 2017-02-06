@@ -8,7 +8,7 @@ This repository contains sample configuration files for Docker Distribution (Reg
 2. Certificates will be stored in `/var/lib/registry/certs` on the host
 3. Registry configuration will be stored in `/var/lib/registry` on the host
 4. Portus configuration will be stored in `/var/lib/registry/portus` on the host
-5. MariaDB data will be stored in `/var/lib/registry/mariadb` on the host
+5. MySQL or MariaDB data will be stored in `/var/lib/registry/db` on the host
 6. You have a valid 3rd-party CA signed SSL certificate and corresponding private key for the host
 
 These directories need to be created manually before starting any of the containers below.
@@ -26,23 +26,25 @@ These directories need to be created manually before starting any of the contain
 
 *Note:* To successfully configure the Docker Registry to use the webhook to notify Portus, the full SSL chain including private key is required.
 
-## Step 2: Start the MariaDB Container
+## Step 2: Start the MySQL or MariaDB Container
 
-Use the following command to start a MariaDB container to store the Portus data:
+Use the following command to start a MySQL or MariaDB container to store the Portus data:
 
 ```
-docker run -d --restart=always --name mariadb \
+docker run -d --restart=always --name mysql \
  -e MYSQL_DATABASE=portus \
  -e MYSQL_USER=portus \
  -e MYSQL_PASSWORD=portus \
  -e MYSQL_RANDOM_ROOT_PASSWORD=yes \
- -v /var/lib/registry/mariadb:/var/lib/mysql \
- mariadb:latest
+ -v /var/lib/registry/db:/var/lib/mysql \
+ mysql:latest
 ```
 
-This will initialize the MariaDB database and generate a random root password. You will need to check the output of `docker logs mariadb` to find the root password generated. 
+This will initialize a MySQL database and generate a random root password. You will need to check the output of `docker logs mariadb` to find the root password generated. 
 It will also create a database for Portus and a user named `portus` with the password `portus`. For security purposes, it is strongly recommended that you change this
 command-line to use a different password and then change the `docker run` command that starts portus to use the same password.
+
+You could also use MariaDB by replacing the `--name` and image (`mariadb:latest`) names.
 
 ## Step 3: Start the Registry Container
 
