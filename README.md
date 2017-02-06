@@ -28,7 +28,7 @@ These directories need to be created manually before starting any of the contain
 
 ## Step 2: Start the MySQL or MariaDB Container
 
-Use the following command to start a MySQL or MariaDB container to store the Portus data:
+Use the following command to start a MySQL container to store the Portus data:
 
 ```
 docker run -d --restart=always --name mysql \
