@@ -14,13 +14,13 @@ auth:
     realm: https://your.registry.fqdn/v2/token
     service: your.registry.fqdn:5000
     issuer: your.registry.fqdn
-    rootcertbundle: /certs/server.crt
+    rootcertbundle: /certs/fullchain.pem
 http:
   addr: :5000
   host: your.registry.fqdn:5000
   tls:
-    certificate: /certs/server.crt
-    key: /certs/server.key
+    certificate: /certs/fullchain.pem
+    key: /certs/privkey.pem
   headers:
     X-Content-Type-Options: [nosniff]
 health:
