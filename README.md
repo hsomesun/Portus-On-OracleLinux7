@@ -1,3 +1,10 @@
+# WARNING 
+*This guide is very out of date with the changes being made to Portus upstream. It will 
+be updated after Portus 2.3 is released.*
+
+This guide will *NOT* work with the current master branch of Portus.
+
+
 # Configuration to run Portus on Oracle Linux 7
 
 This repository contains sample configuration files for Docker Distribution
