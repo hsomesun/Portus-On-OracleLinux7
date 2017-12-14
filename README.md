@@ -4,6 +4,13 @@ be updated after Portus 2.3 is released.*
 
 This guide will *NOT* work with the current master branch of Portus.
 
+# Alternative: VMware Harbor
+While the Portus team have been hard at work with lots and lots of development, I've also
+evaluated and switched my personal registry across to [VMware Harbor](https://github.com/vmware/harbor/) 
+which includes support for both Docker Notary and CoreOS Clair.
+
+Clair support is coming to Portus too, but I haven't seen any Notary integration there (yet).
+
 
 # Configuration to run Portus on Oracle Linux 7
 
