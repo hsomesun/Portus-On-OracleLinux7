@@ -1,12 +1,19 @@
-# WARNING 
-*This guide is very out of date with the changes being made to Portus upstream. It will 
-be updated after Portus 2.3 is released.*
+# WARNING
+__*This guide is very out of date with the changes being made to Portus upstream. It will
+be updated after Portus 2.3 is released.*__
 
-This guide will *NOT* work with the current master branch of Portus.
+__This guide will *NOT* work with the current master branch of Portus.__
+
+# SECURITY RISK
+
+http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8059
+
+_It appears that my NGINX configuration is not secure enough and has had a CVE
+assigned. Please use this configuration at your own risk._
 
 # Alternative: VMware Harbor
 While the Portus team have been hard at work with lots and lots of development, I've also
-evaluated and switched my personal registry across to [VMware Harbor](https://github.com/vmware/harbor/) 
+evaluated and switched my personal registry across to [VMware Harbor](https://github.com/vmware/harbor/)
 which includes support for both Docker Notary and CoreOS Clair.
 
 Clair support is coming to Portus too, but I haven't seen any Notary integration there (yet).
